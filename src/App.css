@@ -47,7 +47,7 @@ h1 {
   width: 195px;
   display: flex;
   margin-bottom: 30px;
-  outline: solid 5px azure;
+  outline: solid 5px rgb(37, 37, 37);
   align-items: center;
   border-radius: 8px;
   padding-right: 45px;
