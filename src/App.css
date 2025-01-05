@@ -101,3 +101,24 @@ h1 {
   margin-bottom: -50px;
   transition: all .2s ease-in-out;
 }
+
+.instruction {
+  width: 900px;
+  height: 600px;
+  background-color: #2f2f2f;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.instruction > h3 {
+  margin: 20px;
+  text-align: center;
+}
+
+.instruction > button {
+  background-color: rgb(136, 0, 0);
+}

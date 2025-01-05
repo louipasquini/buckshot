@@ -27,6 +27,8 @@ function App() {
 
   let [lockPlay,setLockPlay] = useState(false)
 
+  let [displayInstruction,setDisplayInstruction] = useState("")
+
   const deletarItemOne = (index,player,enemy) => {
     game.players[player.status].itens.splice(index,1)
     if (player.status === 0) {
@@ -337,6 +339,16 @@ function App() {
     }
   }
 
+  const handlePlay = () => {
+    if (displayInstruction === "") {
+
+      setDisplayInstruction("none")
+    } else {
+      setDisplayInstruction("")
+      console.log(displayInstruction)
+    }
+  }
+
   return (
     <div className='app'>
       <div className="enemy-deck">
@@ -385,10 +397,24 @@ function App() {
         <div className="centro">
           <h1 style={{position: "absolute", transition: "all .2s ease-in-out", display: `${displayCount}`}}>{count}</h1>
           <img style={{position: "absolute", transition: "all .2s ease-in-out", display: `${displayShot}`}} src={bangShot} alt="" />
+          <div style={{position: "absolute", display:`${displayInstruction}`}} className="instruction">
+            <h1>Instruções</h1>
+            <h3>1. Aperte em "Reload" para começar o jogo</h3>
+            <h3>2. O display à esquerda mostra quantas balas tem na arma. Os cartuchos vermelhos representam os que estão cheios, enquanto os pretos representam os vazios</h3>
+            <h3>3. Os itens dão vantagens na sua rodada.</h3>
+            <h3>4. A rodada termina quando decidir atirar em si mesmo ou no inimigo.</h3>
+            <h3>5. Caso escolha atirar em si mesmo e o cartucho esteja vazio, você ganha mais uma chance.</h3>
+            <h3>6. Ao lado direito vemos qual foi o último cartucho.</h3>
+            <h3>66. Sempre que a arma é recarregada, novos itens são adicionados à sua mão.</h3>
+            <h3>666. Sobreviva.</h3>
+
+            <button onClick={handlePlay}>Jogar</button>
+          </div>
         </div>
         <div className="deck-arma">
           <img src={game.before[game.before.length-1] === 0 ? cartuchoVazio : cartuchoCheio} alt="" />
           <Start start={handleStart} />
+          <button style={{color: "#2f2f2f" }} onClick={handlePlay}>Como jogar</button>
         </div>
       </div>
       <div className="friendly-deck">
