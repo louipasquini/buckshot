@@ -44,12 +44,13 @@ h1 {
 
 .cartucheira {
   height: 60px;
+  width: 300px;
   display: flex;
   margin-bottom: 30px;
   outline: solid 5px azure;
   align-items: center;
   border-radius: 8px;
-  padding: 5px;
+  padding-right: 45px;
 }
 
 .cartucho {

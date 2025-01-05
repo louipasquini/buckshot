@@ -27,7 +27,7 @@ class Game {
   }
 
   start_round() {
-    while (this.bullets.falsas === 0 || this.bullets.verdadeiras === 0) {
+    while (this.bullets.falsas === 0 || this.bullets.verdadeiras === 0 || this.bullets.falsas - this.bullets.verdadeiras > 2 || this.bullets.verdadeiras - this.bullets.falsas > 2 || this.bullets.verdadeiras + this.bullets.falsas > 8) {
       this.gun.reload();
       this.generate_count()
     }
