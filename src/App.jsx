@@ -8,6 +8,9 @@ import Deck from './components/Deck/Deck.jsx'
 import { useState } from 'react'
 import Card from './components/Card/Card.jsx'
 import { flushSync } from 'react-dom'
+import cartuchoVazio from "./assets/cartucho_vazio.png"
+import cartuchoCheio from "./assets/cartucho_cheio.png"
+import bangShot from "./assets/Bang-PNG-HD-Image.png"
 
 function App() {
   let [playerOne,setPlayerOne] = useState(new Player(0))
@@ -349,33 +352,33 @@ function App() {
         <div className="status_arma">
           <h1>{statusArma}</h1>
           <div className="cartucheira">
-          <div style={{display: `${game.bullets.falsas >= 1 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas >= 2 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas >= 3 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas >= 4 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas >= 5 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas >= 6 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas >= 7 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.falsas === 8 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_vazio.png" alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 1 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 2 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 3 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 4 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 5 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 6 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas >= 7 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio} alt="" /></div>
+          <div style={{display: `${game.bullets.falsas === 8 ? "" : "none"}`}} className="cartucho"><img src={cartuchoVazio}alt="" /></div>
           </div>
           <div className="cartucheira">
-          <div style={{display: `${game.bullets.verdadeiras >= 1 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras >= 2 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras >= 3 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras >= 4 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras >= 5 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras >= 6 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras >= 7 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
-          <div style={{display: `${game.bullets.verdadeiras === 8 ? "" : "none"}`}} className="cartucho"><img src="src/assets/cartucho_cheio.png" alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 1 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 2 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 3 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 4 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 5 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 6 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras >= 7 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
+          <div style={{display: `${game.bullets.verdadeiras === 8 ? "" : "none"}`}} className="cartucho"><img src={cartuchoCheio} alt="" /></div>
           </div>
           <p>Lupa: {game.lupa[game.lupa.length -1]}</p>
         </div>
         <div className="centro">
           <h1 style={{position: "absolute", transition: "all .2s ease-in-out", display: `${displayCount}`}}>{count}</h1>
-          <img style={{position: "absolute", transition: "all .2s ease-in-out", display: `${displayShot}`}} src="src/assets/Bang-PNG-HD-Image.png" alt="" />
+          <img style={{position: "absolute", transition: "all .2s ease-in-out", display: `${displayShot}`}} src={bangShot} alt="" />
         </div>
         <div className="deck-arma">
-          <img src={game.before[game.before.length-1] === 0 ? "src/assets/cartucho_vazio.png" : "src/assets/cartucho_cheio.png"} alt="" />
+          <img src={game.before[game.before.length-1] === 0 ? cartuchoVazio : cartuchoCheio} alt="" />
           <Start start={handleStart} />
         </div>
       </div>
