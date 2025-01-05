@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1d1d1d;
+  color: azure;
+}
+
+button {
+  width: 180px;
+  height: 40px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: azure;
+  transition: all .2s ease-in-out;
+  box-shadow: 1px 1px 6px #00000090;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1);
+  transition: all .05s ease-in;
+}

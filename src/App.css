@@ -1,0 +1,101 @@
+.battlefield {
+  height: 330px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.enemy-deck {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.friendly-deck {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 5px;
+}
+
+h1 {
+  margin: 5px;
+}
+
+.life-bar {
+  display: flex;
+}
+
+.cartucheira {
+  height: 60px;
+  display: flex;
+  margin-bottom: 30px;
+  outline: solid 5px azure;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.cartucho {
+  width: 35px;
+  margin-top: 10px;
+}
+
+.cartucho > img {
+  width: 100px;
+}
+
+.centro {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.centro > img {
+  width: 300px;
+  margin-top: -50px;
+  margin-bottom: -50px;
+  transition: all .2s ease-in-out;
+}
+
+.status-life {
+  width: 20px;
+  height: 10px;
+  margin: 2px;
+}
+
+.status-arma {
+  width: 20%;
+}
+
+.deck-arma {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.deck-arma > img {
+  width: 300px;
+  margin-top: -50px;
+  margin-bottom: -50px;
+  transition: all .2s ease-in-out;
+}
