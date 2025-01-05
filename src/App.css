@@ -49,6 +49,7 @@ h1 {
   outline: solid 5px azure;
   align-items: center;
   border-radius: 8px;
+  padding: 5px;
 }
 
 .cartucho {
