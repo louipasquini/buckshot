@@ -25,6 +25,8 @@ function App() {
   let [displayCount, setDisplayCount] = useState("none")
   let [count,setCount] = useState("")
 
+  let [lockPlay,setLockPlay] = useState(false)
+
   const deletarItemOne = (index,player,enemy) => {
     game.players[player.status].itens.splice(index,1)
     if (player.status === 0) {
@@ -54,9 +56,10 @@ function App() {
   }
 
   const shotPlayerOne = () => {
-    if (game.players[0].turn === false || game.gun.bullets.length === 0) {
+    if (game.players[0].turn === false || game.gun.bullets.length === 0 || lockPlay === true) {
       return false
     } else {
+      setLockPlay(true)
       if (game.gun.bullets[game.gun.bullets.length-1] === 1) {
         setDisplayCount("")
         setCount(".")
@@ -96,6 +99,7 @@ function App() {
       setPlayerTwo(game.players[1])
       setListaPlayerOne(createDeck(game.players[0],game.players[1],game,game.gun))
       setListaPlayerTwo(createDeck(game.players[1],game.players[0],game,game.gun))
+      setLockPlay(false)
       if (game.players[0].life <= 0 || game.players[1].life <= 0) {
         setStatusArma(game.players[0].life <= 0 ? "Player 1 perdeu!" : "Player 2 perdeu!")
         setTimeout(()=>{
@@ -122,9 +126,10 @@ function App() {
   }
 
   const shotPlayerTwo = () => {
-    if (game.players[1].turn === false || game.players[1].locked === true || game.gun.bullets.length === 0) {
+    if (game.players[1].turn === false || game.players[1].locked === true || game.gun.bullets.length === 0 || lockPlay === true) {
       return false
     } else {
+      setLockPlay(true)
       if (game.gun.bullets[game.gun.bullets.length-1] === 1) {
         setDisplayCount("")
         setCount(".")
@@ -164,7 +169,7 @@ function App() {
       setPlayerTwo(game.players[1])
       setListaPlayerOne(createDeck(game.players[0],game.players[1],game,game.gun))
       setListaPlayerTwo(createDeck(game.players[1],game.players[0],game,game.gun))
-      
+      setLockPlay(false)
       if (game.players[0].life <= 0 || game.players[1].life <= 0) {
         setStatusArma(game.players[0].life <= 0 ? "Player 1 perdeu!" : "Player 2 perdeu!")
         setTimeout(()=>{
@@ -189,9 +194,10 @@ function App() {
   }
 
   const shotEnemyOne = () => {
-    if (game.players[0].turn === false || game.players[0].locked === true || game.gun.bullets.length === 0) {
+    if (game.players[0].turn === false || game.players[0].locked === true || game.gun.bullets.length === 0 || lockPlay === true) {
       return false
     } else {
+      setLockPlay(true)
       if (game.gun.bullets[game.gun.bullets.length-1] === 1) {
         setDisplayCount("")
         setCount(".")
@@ -231,6 +237,7 @@ function App() {
       setPlayerTwo(game.players[1])
       setListaPlayerOne(createDeck(game.players[0],game.players[1],game,game.gun))
       setListaPlayerTwo(createDeck(game.players[1],game.players[0],game,game.gun))
+      setLockPlay(false)
       if (game.players[0].life <= 0 || game.players[1].life <= 0) {
         setStatusArma(game.players[0].life <= 0 ? "Player 1 perdeu!" : "Player 2 perdeu!")
         setTimeout(()=>{
@@ -255,9 +262,10 @@ function App() {
   }
 
   const shotEnemyTwo = () => {
-    if (game.players[1].turn === false || game.players[1].locked === true || game.gun.bullets.length === 0) {
+    if (game.players[1].turn === false || game.players[1].locked === true || game.gun.bullets.length === 0 || lockPlay === true) {
       return false
     } else {
+      setLockPlay(true)
       if (game.gun.bullets[game.gun.bullets.length-1] === 1) {
         setDisplayCount("")
         setCount(".")
@@ -297,6 +305,7 @@ function App() {
       setPlayerTwo(game.players[1])
       setListaPlayerOne(createDeck(game.players[0],game.players[1],game,game.gun))
       setListaPlayerTwo(createDeck(game.players[1],game.players[0],game,game.gun))
+      setLockPlay(false)
       if (game.players[0].life <= 0 || game.players[1].life <= 0) {
         setStatusArma(game.players[0].life <= 0 ? "Player 1 perdeu!" : "Player 2 perdeu!")
         setTimeout(()=>{
@@ -332,7 +341,7 @@ function App() {
     <div className='app'>
       <div className="enemy-deck">
       <div className="status">
-      <h1 style={{color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Player 2</h1>
+      <h1 style={{color: `${game.players[1].turn === false || game.players[1].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Player 2</h1>
       <div className='life-bar'>
         <div className="status-life" style={{backgroundColor: `${game.players[1].life >= 1 ? "green" : "#2f2f2f"}`}}></div>
         <div className="status-life" style={{backgroundColor: `${game.players[1].life >= 2 ? "green" : "#2f2f2f"}`}}></div>
@@ -341,10 +350,10 @@ function App() {
         <div className="status-life" style={{backgroundColor: `${game.players[1].life >= 5 ? "green" : "#2f2f2f"}`}}></div>
         <div className="status-life" style={{backgroundColor: `${game.players[1].life === 6 ? "green" : "#2f2f2f"}`}}></div>
       </div>
-      <h3 style={{color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Status: {game.players[1].locked === false ? "Livre" : "Algemado"}</h3>
-      <h3 style={{color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Turno: {game.players[1].turn === false ? "Aguarde" : "Seu turno"}</h3>
-      <button onClick={shotPlayerTwo} style={{backgroundColor: `${game.players[1].turn === false || game.players[1].locked === true ? "#2f2f2f" : "green"}`, color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Atirar no Inimigo</button>
-      <button onClick={shotEnemyTwo} style={{backgroundColor: `${game.players[1].turn === false || game.players[1].locked === true ? "#2f2f2f" : "green"}` , color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Atirar em si próprio</button>
+      <h3 style={{color: `${game.players[1].turn === false || game.players[1].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Status: {game.players[1].locked === false ? "Livre" : "Algemado"}</h3>
+      <h3 style={{color: `${game.players[1].turn === false || game.players[1].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Turno: {game.players[1].turn === false || lockPlay === true ? "Aguarde" : "Seu turno"}</h3>
+      <button onClick={shotPlayerTwo} style={{backgroundColor: `${game.players[1].turn === false || game.players[1].locked === true || lockPlay === true ? "#2f2f2f" : "green"}`, color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Atirar no Inimigo</button>
+      <button onClick={shotEnemyTwo} style={{backgroundColor: `${game.players[1].turn === false || game.players[1].locked === true || lockPlay === true ? "#2f2f2f" : "green"}` , color: `${game.players[1].turn === false || game.players[1].locked === true ? "#ffffff20" : "azure"}`}}>Atirar em si próprio</button>
      </div>
       <Deck lista={listaPlayerTwo}/>
       </div>
@@ -385,7 +394,7 @@ function App() {
       <div className="friendly-deck">
       <Deck lista={listaPlayerOne}/>
       <div className="status">
-        <h1 style={{color: `${game.players[0].turn === false || game.players[0].locked === true ? "#ffffff20" : "azure"}`}}>Player 1</h1>
+        <h1 style={{color: `${game.players[0].turn === false || game.players[0].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Player 1</h1>
         <div className='life-bar'>
           <div className="status-life" style={{backgroundColor: `${game.players[0].life >= 1 ? "green" : "#2f2f2f"}`}}></div>
           <div className="status-life" style={{backgroundColor: `${game.players[0].life >= 2 ? "green" : "#2f2f2f"}`}}></div>
@@ -394,10 +403,10 @@ function App() {
           <div className="status-life" style={{backgroundColor: `${game.players[0].life >= 5 ? "green" : "#2f2f2f"}`}}></div>
           <div className="status-life" style={{backgroundColor: `${game.players[0].life === 6 ? "green" : "#2f2f2f"}`}}></div>
         </div>
-        <h3 style={{color: `${game.players[0].turn === false || game.players[0].locked === true ? "#ffffff20" : "azure"}`}}>Status: {game.players[0].locked === false ? "Livre" : "Algemado"}</h3>
-        <h3 style={{color: `${game.players[0].turn === false || game.players[0].locked === true ? "#ffffff20" : "azure"}`}}>Turno: {game.players[0].turn === false ? "Aguarde" : "Seu turno"}</h3>
-        <button onClick={shotEnemyOne} style={{backgroundColor: `${game.players[0].turn === false ? "#2f2f2f" : "green"}`, color: `${game.players[0].turn === false || game.players[0].locked === true ? "#ffffff20" : "azure"}`}}>Atirar no Inimigo</button>
-        <button onClick={shotPlayerOne} style={{backgroundColor: `${game.players[0].turn === false ? "#2f2f2f" : "green"}`, color: `${game.players[0].turn === false || game.players[0].locked === true ? "#ffffff20" : "azure"}`}}>Atirar em si próprio</button>
+        <h3 style={{color: `${game.players[0].turn === false || game.players[0].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Status: {game.players[0].locked === false ? "Livre" : "Algemado"}</h3>
+        <h3 style={{color: `${game.players[0].turn === false || game.players[0].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Turno: {game.players[0].turn === false || lockPlay === true ? "Aguarde" : "Seu turno"}</h3>
+        <button onClick={shotEnemyOne} style={{backgroundColor: `${game.players[0].turn === false || lockPlay === true ? "#2f2f2f" : "green"}`, color: `${game.players[0].turn === false || game.players[0].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Atirar no Inimigo</button>
+        <button onClick={shotPlayerOne} style={{backgroundColor: `${game.players[0].turn === false || lockPlay === true ? "#2f2f2f" : "green"}`, color: `${game.players[0].turn === false || game.players[0].locked === true || lockPlay === true ? "#ffffff20" : "azure"}`}}>Atirar em si próprio</button>
     </div>
       </div>
     </div>
