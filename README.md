@@ -45,10 +45,14 @@ A próxima bala dá 2 de dano, independente em quem for atirar.
 # O projeto
 Esse projeto é desenvolvido em React e se comporta como um card game.
 
+![Print do projeto-1](src/assets/print1.png)
+
 Os itens ficam na parte inferior ou superior, dependendo de qual player você for, ao lado do display com seus status como vida, se está livre ou algemado, se é o seu turno e os botões de decisão.
+
+![Print do projeto-2](src/assets/print2.png)
 
 No campo do meio temos à esquerda os status da arma (quantos cartuchos vazios e cheios restam) e a dica caso algum dos players utilize a lupa. À direita vemos o último cartucho (seja descartado pela cerveja ou usado com a arma), o botão de Reload e de Instruções.
 
-![Print do projeto](src/assets/print.png)
+![Print do projeto-3](src/assets/print3.png)
 
 Você pode acessar a versão no ar para testes [nesse link](https://buckshot-cardgame.vercel.app/)
