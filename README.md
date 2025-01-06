@@ -49,7 +49,6 @@ Canivete | A próxima bala dá 2 de dano, independente em quem for atirar.
 ![CSS3](https://img.shields.io/badge/CSS3-000?style=for-the-badge&logo=css3&logoColor=2965f1)
 ![JavaScript](https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript)
 ![React](https://img.shields.io/badge/React-000?style=for-the-badge&logo=react)
-![Bun](https://miro.medium.com/v2/resize:fit:396/1*_Y-DSMfu8AJK2rS8KHYvRA.png)
 Esse projeto é desenvolvido em React e se comporta como um card game.
 
 ![Print do projeto-1](src/assets/print1.png)
