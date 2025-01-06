@@ -25,6 +25,15 @@ Se o cartucho estiver vazio, você ganha mais uma chance de escolher. Caso estej
 #### Atirando no rival
 Se o cartucho estiver cheio, o rival recebe o dano. Caso contrário, o turno é passado.
 
+```mermaid
+graph LR
+A[Escolher itens] --> B{Escolha em quem atirar}
+B --> C{Atirar em si} --> D[Cartucho Vazio] --> A
+C --> E[Cartucho Cheio] --> F(Passar o Turno)
+B --> G{Atirar no rival} --> H[Cartucho Vazio] --> F
+G --> I[Cartucho Cheio] -- |O outro leva dano| --> F
+```
+
 ## Itens
 
 Item   | Descrição
