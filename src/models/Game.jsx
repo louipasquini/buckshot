@@ -27,9 +27,12 @@ class Game {
   }
 
   start_round() {
-    while (this.bullets.falsas === 0 || this.bullets.verdadeiras === 0 || this.bullets.falsas - this.bullets.verdadeiras > 2 || this.bullets.verdadeiras - this.bullets.falsas > 2 || this.bullets.verdadeiras + this.bullets.falsas > 8) {
+    let starting = 0
+    while (this.bullets.falsas === 0 || this.bullets.verdadeiras === 0 || this.bullets.falsas - this.bullets.verdadeiras > 2 || this.bullets.verdadeiras - this.bullets.falsas > 2 || this.bullets.verdadeiras + this.bullets.falsas > 8 && starting < 100) {
       this.gun.reload();
       this.generate_count()
+      starting += 1
+      console.log(starting)
     }
     let num_itens = Math.floor(Math.random() * (4 - 2) + 2)
     for (let i=0;i<num_itens;i++) {
