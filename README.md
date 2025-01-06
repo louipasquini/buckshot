@@ -29,7 +29,7 @@ Se o cartucho estiver cheio, o rival recebe o dano. Caso contrário, o turno é 
 graph LR
 A[Escolher itens] --> B{Escolha em quem atirar}
 B --> C{Atirar em si} --> D[Cartucho Vazio] --> A
-C --> E[Cartucho Cheio] --> F(Passar o Turno)
+C --> E[Cartucho Cheio] -- |Você leva dano| --> F(Passar o Turno)
 B --> G{Atirar no rival} --> H[Cartucho Vazio] --> F
 G --> I[Cartucho Cheio] -- |O outro leva dano| --> F
 ```
