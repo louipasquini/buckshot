@@ -31,6 +31,13 @@ class Arma {
     for (let i=0;i<many;i++) {
       this.bullets.push(Math.floor(Math.random() * 2));
     }
+
+    while(this.bullets.length>8) {
+      this.bullets = []
+    }
+
+    many = 2
+
   }
 }
 
