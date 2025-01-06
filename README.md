@@ -27,20 +27,13 @@ Se o cartucho estiver cheio, o rival recebe o dano. Caso contrário, o turno é 
 
 ## Itens
 
-#### Cerveja
-Descarta a próxima bala e você pode ver qual seria.
-
-#### Lupa
-Semelhante ao item anterior, permite ver a próxima bala, mas sem descartá-la, permitindo com que decida o que fazer com essa bala.
-
-#### Cigarro
-Te dá +1 de vida (São as regras do jogo)
-
-#### Algema 
-Impede o rival de jogar o próximo turno.
-
-#### Canivete
-A próxima bala dá 2 de dano, independente em quem for atirar.
+Item   | Descrição
+--------- | ------
+Cerveja | Descarta a próxima bala e você pode ver qual seria.
+Lupa | Semelhante ao item anterior, permite ver a próxima bala, mas sem descartá-la, permitindo com que decida o que fazer com essa bala.
+Algema | Impede o rival de jogar o próximo turno.
+Cigarro | Te dá +1 de vida (São as regras do jogo)
+Canivete | A próxima bala dá 2 de dano, independente em quem for atirar.
 
 # O projeto
 Esse projeto é desenvolvido em React e se comporta como um card game.
